@@ -2,15 +2,15 @@
 
 
 public OnPlayerUpdate(playerid){
-  //Anti Gay-Fly
-  if(GetPlayerVehicleID(i) == 0){
+ 	//Anti Gay-Fly
+ 	if(GetPlayerVehicleID(i) == 0){
         switch(GetPlayerAnimationIndex(i)){ //Проверка анимации плавания
 	        case 1543, 1539, 1250:{
 	 		    if(!IsPlayerInWater(i)) Kick(i); //Здесь твоя функция - кика
             }
-        }
-  }
-  return 1;
+		}
+	}
+	return 1;
 }
 
 
