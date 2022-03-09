@@ -2,7 +2,7 @@
 
 
 public OnPlayerUpdate(playerid){
- 	//Anti Gay-Fly
+ 	//Anti Gay-Fly//
  	if(GetPlayerVehicleID(i) == 0){
         switch(GetPlayerAnimationIndex(i)){ //Проверка анимации плавания
 	        case 1543, 1539, 1250:{
