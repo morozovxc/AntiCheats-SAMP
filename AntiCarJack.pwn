@@ -1,5 +1,3 @@
-
-
 new TimerState[MAX_PLAYERS][2];
 forward CheckTimerState(playerid, timerid);
 
