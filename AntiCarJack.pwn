@@ -2,18 +2,18 @@ new TimerState[MAX_PLAYERS][2];
 forward CheckTimerState(playerid, timerid);
 
 public CheckTimerState(playerid, timerid){
-    if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER) Slap(playerid);
+	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER) Slap(playerid);
 	KillTimer(TimerState[playerid][timerid]);
 	TimerState[playerid][timerid] = -1;
-    return 1;
+	return 1;
 }
 
 stock cocheocupado(vehicleid)
 {
-    for(new i; i<GetMaxPlayers(); i++)
-        if(IsPlayerConnected(i) && IsPlayerInVehicle(i, vehicleid) && GetPlayerState(i) == PLAYER_STATE_DRIVER)
-            return 1;
-    return 0;
+	for(new i; i<GetMaxPlayers(); i++)
+		if(IsPlayerConnected(i) && IsPlayerInVehicle(i, vehicleid) && GetPlayerState(i) == PLAYER_STATE_DRIVER)
+            		return 1;
+	return 0;
 }
 
 stock Slap(playerid){
