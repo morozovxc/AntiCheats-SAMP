@@ -5,8 +5,8 @@ public OnPlayerUpdate(playerid){
  	//Anti Gay-Fly//
  	if(GetPlayerVehicleID(i) == 0){
         	switch(GetPlayerAnimationIndex(i)){ //Проверка анимации плавания
-	        	case 1543, 1539, 1250:{
-	 		    if(!IsPlayerInWater(i)) Kick(i); //Здесь твоя функция - кика
+	        	case 1543, 1539, 1250:{ // Макс.скорость когда плывёшь (25км/ч) - внизу сток, можете заменить на свой, но надо замерить скорость
+	 		    if(!IsPlayerInWater(i) && GetPlayerSpeed(i) >= 25) Kick(i); //Здесь твоя функция - кика
             		}
 		}
 	}
@@ -28,4 +28,15 @@ stock IsPlayerInWater(playerid)
 		}
 	}
 	return (false);
+}
+
+stock GetPlayerSpeed(playerid) 
+{
+    	new Float:ST[4];
+    	if(IsPlayerInAnyVehicle(playerid)){
+		GetVehicleVelocity(GetPlayerVehicleID(playerid),ST[0],ST[1],ST[2]);
+	}
+	else GetPlayerVelocity(playerid,ST[0],ST[1],ST[2]);
+	ST[3] = floatsqroot(floatmul(ST[0], ST[0]) + floatmul(ST[1], ST[1]) + floatmul(ST[2], ST[2])) * 200;
+    	return floatround(ST[3]);
 }
