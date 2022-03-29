@@ -6,6 +6,7 @@ public OnPlayerUpdate(playerid){
  	if(GetPlayerVehicleID(i) == 0){
         	switch(GetPlayerAnimationIndex(i)){ //Проверка анимации плавания
 	        	case 1543, 1539, 1250:{ // Макс.скорость когда плывёшь (25км/ч) - внизу сток, можете заменить на свой, но надо замерить скорость
+				//p.s Добавить систему варнов бы ( из OnPlayerUpdate воткнуть в 1 секундный таймер, иначе эта хуйня неконтроллируема )
 	 		    if(!IsPlayerInWater(i) && GetPlayerSpeed(i) >= 25) Kick(i); //Здесь твоя функция - кика
             		}
 		}
