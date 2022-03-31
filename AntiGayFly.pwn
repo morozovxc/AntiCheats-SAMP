@@ -1,14 +1,19 @@
 //Для этого понадобится ColAndreas (Я использовал 1.4.0)
+forward onesec();
+SetTimer("onesec", 1000, true);//В OnGameModeInIt
 
 
-public OnPlayerUpdate(playerid){
- 	//Anti Gay-Fly//
- 	if(GetPlayerVehicleID(i) == 0){
-        	switch(GetPlayerAnimationIndex(i)){ //Проверка анимации плавания
-	        	case 1543, 1539, 1250:{ // Макс.скорость когда плывёшь (25км/ч) - внизу сток, можете заменить на свой, но надо замерить скорость
-				//p.s Добавить систему варнов бы ( из OnPlayerUpdate воткнуть в 1 секундный таймер, иначе эта хуйня неконтроллируема )
-	 		    if(!IsPlayerInWater(i) && GetPlayerSpeed(i) >= 25) Kick(i); //Здесь твоя функция - кика
-            		}
+public onesec(){
+	for(new i=0; i<MAX_PLAYERS; i++){
+		if(IsPlayerConnected(i)){
+			//Anti Gay-Fly//
+			if(GetPlayerVehicleID(i) == 0){
+				switch(GetPlayerAnimationIndex(i)){ //Проверка анимации плавания
+					case 1543, 1539, 1250:{ // Макс.скорость когда плывёшь (25км/ч) - внизу сток, можете заменить на свой, но надо замерить скорость
+					    if(!IsPlayerInWater(i) && GetPlayerSpeed(i) >= 25) Kick(i); //Здесь твоя функция - кика
+					}
+				}
+			}
 		}
 	}
 	return 1;
