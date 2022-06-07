@@ -31,6 +31,21 @@ public onesec(){
 						}
 						OldSpeed[i] = GetPlayerSpeed(i);
 					}
+					case 1189:
+					{
+						new Float:X, Float:Y, Float:Z;
+						GetPlayerPos(i, X, Y, Z);
+						if(CA_RayCastLine(X, Y, Z, X, Y, Z-2.0, X, Y, Z) == 0)
+						{
+							AirWarns[i]++;
+							if(AirWarns[i] >= 4)
+							{
+								Kick(playerid); //Функция кика
+								AirWarns[i] = 0;
+								OldSpeed[i] = 0;
+							}
+						}
+					}
 					default: AirWarns[i] = 0;
 	 		    	}
 			}
